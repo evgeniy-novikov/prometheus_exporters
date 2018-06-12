@@ -1,0 +1,11 @@
+[Unit]
+Description=mysqld_exporter
+Wants=network-online.target
+After=network-online.target
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/bin/mysqld_exporter -collect.binlog_size=true -collect.info_schema.processlist=true
+[Install]
+WantedBy=multi-user.target

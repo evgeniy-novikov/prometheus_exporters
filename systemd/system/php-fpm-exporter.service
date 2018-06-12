@@ -1,0 +1,11 @@
+[Unit]
+Description=node_exporter
+Wants=network-online.target
+After=network-online.target
+[Service]
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/bin/php-fpm-exporter --endpoint "http://doc:doc@127.0.0.1/status" --addr :9180
+[Install]
+WantedBy=multi-user.target
